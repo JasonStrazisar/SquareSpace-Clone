@@ -1,0 +1,26 @@
+{
+    "page":[
+        {"type": "header", "blocks": [
+            {"type": "h1", "content": "Salut", "style": [{"type": "font-weight","property": "100"}], "class": "zizi"},
+            {"type": "link","to": "https://www.zoobeauval.com/","name": "C par ici ke sa se paçe"}
+            ],
+            "style": [
+                {"type": "display","property": "flex"},
+                {"type": "justify-content", "property": "space-between"},
+                {"type": "align-items","property": "center"},
+                {"type": "padding","property": "15px"}
+            ],
+            "class": "header"
+        },
+        {"type": "section","blocks": [
+            {"type": "text", "content": "Foto de mon fiak", "tag": "h2"},
+            {"type": "image","link": "https://cdn-images.zoobeauval.com/j9tWE2sWeL7mDaWyJ-pFKpw2VAY=/634x642/https://s3.eu-west-3.amazonaws.com/assets.zoobeauval.com/2021/5/static/leaves/composition-spatule.d3e48221.webp"}
+            ]
+        },
+        {"type": "section", "blocks": [
+            {"type": "text", "content": "Lettre d'amour a mon cul", "tag": "h2"},
+            {"type": "text", "content": "Wsh batard t'a un bo fiak zer", "tag": "p"}
+            ]
+        }
+    ]
+}
