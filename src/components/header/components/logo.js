@@ -9,7 +9,7 @@ const mapState = ({websiteProperties}) => ({
 const Name = styled.h5`
     margin: 0;
     font-size: 2rem;
-    color: ${props => props.color},
+    color: ${props => props.logoColor};
     text-align: center
 `
 
@@ -18,12 +18,13 @@ const Logo = styled.img`
 
 const LogoComponent = ({titleColor}) => {
     const {websiteLogo, webisteName} = useSelector(mapState)
+
     return(
         <>
         {websiteLogo ? (
             <Logo src={websiteLogo} />
         ) : (
-            <Name color={titleColor} >{webisteName}</Name>
+            <Name logoColor={titleColor} >{webisteName}</Name>
         )}
         </>
     )

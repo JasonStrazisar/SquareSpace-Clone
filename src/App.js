@@ -4,6 +4,8 @@ import StudioHeader from "./studio/components/header";
 import Header from "./components/header/headerComponent";
 import UpdateHoverButton from './components/header/headerUpdate';
 import Panel from './studio/components/panels/editPannel';
+import Section from './components/section/sectionComponent';
+import VideoComponent from "./components/atoms/videoComponent";
 
 const AppContainer = styled.div`
   margin: 0;
@@ -11,9 +13,10 @@ const AppContainer = styled.div`
   position: relative;
 `
 const HeaderContainer = styled.div`
-  width: 100vw;
-  position: relative;
+  width: 100%;
   z-index: 1;
+  position: absolute;
+  left: 0;
 `
 
 function App() {
@@ -38,20 +41,22 @@ function App() {
       return;
     }
     // outside click
-    console.log("pute")
     setIsActive(false);
   };
 
   return (
-    <AppContainer className="App" ref={node}>
+    <AppContainer className="App" >
   
       <StudioHeader name="Accueil" />
-      <Panel isActive={isActive}/>
-      <HeaderContainer>
+      
+      <HeaderContainer ref={node}>
+        <Panel isActive={isActive} />
         <Header />
         <UpdateHoverButton openPanel={() => setIsActive(true)} />
       </HeaderContainer>
+      <Section />
 
+      
     </AppContainer>
   );
 }

@@ -17,8 +17,7 @@ const HeaderContainer = styled.header`
     background: ${props => props.background};
     padding: ${props => props.verticalPadding}vw ${props => props.horizontalPadding}vw;
     align-items: center;
-    position: relative;
-    z-index: 10;
+
 `
 
 const HeaderLeftBetween = ({ properties, backgroundColor, titleColor, linkColor}) => {
@@ -97,10 +96,10 @@ const HeaderCenter = ({ properties, backgroundColor, titleColor, linkColor}) => 
 
 const Header = () => {
     const  {headerDisplay, properties, colors, themes, headerTheme} = useSelector(mapState);
-    const selectedTheme = themes.filter(theme =>  theme.id === headerTheme);
-    const titleColor = colors[selectedTheme[0].header.title];
-    const backgroundColor = colors[selectedTheme[0].wholeSite.background];
-    const linksColor = colors[selectedTheme[0].header.links];
+    const selectedTheme = themes[headerTheme];
+    const titleColor = colors[selectedTheme.header.title];
+    const backgroundColor = colors[selectedTheme.wholeSite.background];
+    const linksColor = colors[selectedTheme.header.links];
 
     if(headerDisplay === "centered"){
         return(

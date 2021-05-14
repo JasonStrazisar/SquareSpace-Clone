@@ -164,6 +164,7 @@ const CouleurPanel = () => {
 
     const handleChangeTheme = (e) => {
         dispatch(setHeaderTheme(e.target.value));
+        console.log(e.target.value)
     }
 
     return (
@@ -180,13 +181,13 @@ const CouleurPanel = () => {
                 
                 <div style={{width: "80%"}}>
                     <p style={{fontSize: "15px", color: "rgb(110, 110, 110)", fontWeight: "400" }}>Sélectionnez un thème pour l'en-tête. Pour changer les couleurs d'un thème, accédez à : Éditeur de thème.</p>
-                    {themes.map(({name, primary, secondary, id}, index) => (
+                   {Object.keys(themes).map((keyName, index) => (
                         <CustomRadioButton key={index}>
                             <label>
-                                <input type="radio" style={{width: "0px", height: "0px"}} checked={selectedTheme === id} value={id} onChange={handleChangeTheme} />
-                                <div className="themeSelector" style={{ color: colors[secondary], background: colors[primary], border: `${selectedTheme === id ? "solid 2px black" : "solid 1px grey"}`, display: "flex", width: "100%", alignItems: "center", padding: "0 15px", borderRadius: "15px", cursor: "pointer" }}>
-                                    <p style={{fontWeight: "900", fontSize: "22px", paddingRight: "25px", margin: "0"}}>Aa</p>
-                                    <p style={{fontWeight: "700"}}>{name}</p>
+                                <input type="radio" style={{ width: "0px", height: "0px" }} checked={selectedTheme === themes[keyName].id} value={themes[keyName].id} onChange={handleChangeTheme} />
+                               <div className="themeSelector" style={{ color: colors[themes[keyName].secondary], background: colors[themes[keyName].primary],  border: `${selectedTheme === themes[keyName].id ? "solid 2px black" : "solid 1px grey"}`, display: "flex", width: "100%", alignItems: "center", padding: "0 15px", borderRadius: "15px", cursor: "pointer" }}>
+                                    <p style={{ fontWeight: "900", fontSize: "22px", paddingRight: "25px", margin: "0" }}>Aa</p>
+                                    <p style={{ fontWeight: "700" }}>{themes[keyName].name}</p>
                                 </div>
                             </label>
                         </CustomRadioButton>
